@@ -1,0 +1,92 @@
+﻿<Window x:Class="Tra.Traline.Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tra.Traline.Launcher"
+		xmlns:vm="clr-namespace:Tra.Traline.Launcher.ViewModels"
+		xmlns:v="clr-namespace:Tra.Traline.Launcher.Views" 
+		d:DataContext="{d:DesignInstance Type=vm:MainVM}"
+		mc:Ignorable="d"
+        Title="MainWindow" 
+		Height="450" 
+		Width="800"
+		WindowStyle="None"
+		AllowsTransparency="True"
+		Background="Transparent" 
+		Closing="Window_Closing"
+		KeyDown="Window_KeyDown"
+		MouseDown="DrageWindow_MouseDown">
+
+	<Border Style="{StaticResource StdBdr}"
+			Padding="12">
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<StackPanel Orientation="Horizontal"
+						FlowDirection="RightToLeft">
+				<Button Style="{StaticResource StdBtn}"
+						Height="20"
+						Width="20"
+						Content="x"
+						FontWeight="Bold"
+						Margin="2"
+						Click="WindowClose_ButtonClick"/>
+				<Button Style="{StaticResource StdBtn}" 
+						Height="20"
+						Width="20"
+						Content="-" 
+						FontWeight="Bold"
+						Margin="2"
+						Click="WindowMinimize_ButtonClick"/>
+			</StackPanel>
+
+			<TabControl Background="Transparent"
+						BorderThickness="1"
+						Grid.Row="1">
+
+				<TabItem Header="Folders"
+						 Background="Transparent"
+						 BorderBrush="Aqua"
+						 BorderThickness="0,0,0,1">
+
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" MinWidth="250"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+
+						<v:SkinView x:Name="v_fdrLst"
+									Margin="8"
+									SelectItem="SelectFolder_VFdrLstSelectItem" 
+									DataChanged="DataChanged"/>
+						<v:FolderView x:Name="v_itmlst"
+									  Margin="8"
+									  Grid.Column="1"
+									  Visibility="Hidden"
+									  DataChanged="DataChanged"/>
+
+					</Grid>
+
+				</TabItem>
+
+				<TabItem Header="Variables"
+						 Background="Transparent"
+						 BorderBrush="Aqua"
+						 BorderThickness="0,0,0,1">
+					<TextBlock Text="Coming s∞n"
+							   FontSize="50"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center" />
+				</TabItem>
+
+			</TabControl>
+		</Grid>
+
+	</Border>
+
+</Window>

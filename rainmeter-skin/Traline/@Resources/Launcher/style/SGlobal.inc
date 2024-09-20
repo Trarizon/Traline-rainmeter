@@ -1,0 +1,2 @@
+[SGlobalImage]
+ImageTint=#GeneralColor#

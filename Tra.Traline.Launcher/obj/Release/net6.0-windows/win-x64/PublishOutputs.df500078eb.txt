@@ -1,0 +1,2 @@
+D:\Projects\VisualStudio\CSharp\Tra.Traline\Tra.Traline.Launcher\bin\Release\net6.0-windows\publish\win-x64\Tra.Traline.Launcher.pdb
+D:\Projects\VisualStudio\CSharp\Tra.Traline\Tra.Traline.Launcher\bin\Release\net6.0-windows\publish\win-x64\Tra.Traline.Launcher.exe

@@ -1,0 +1,88 @@
+﻿<Window x:Class="Tra.Traline.Launcher.Dialogs.ItemModifyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tra.Traline.Launcher.Dialogs"
+		xmlns:vm="clr-namespace:Tra.Traline.Launcher.ViewModels" 
+		d:DataContext="{d:DesignInstance Type=vm:ItemVM}"
+		mc:Ignorable="d"
+        Title="ItemModifyDialog"
+		SizeToContent="WidthAndHeight"
+		WindowStyle="None"
+		AllowsTransparency="True"
+		Background="Transparent"
+		ResizeMode="NoResize"
+		AllowDrop="True"
+		MouseDown="DragWindow_WindowMouseDown"
+		DragEnter="Window_DragEnter"
+		Drop="Window_Drop">
+
+	<Border Style="{StaticResource StdBdr}"
+			Padding="16">
+
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="300"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*" />
+				<RowDefinition Height="1*" />
+				<RowDefinition Height="1*" />
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Name"
+					   Margin="4"
+					   FontSize="20"
+					   Grid.Row="0"/>
+			<TextBlock Text="Path"
+					   Margin="4"
+					   FontSize="20"
+					   Grid.Row="1"/>
+			<TextBox x:Name="c_nameTb" 
+					 Style="{StaticResource StdTbx}"
+					 Text="{Binding Path=Name}"
+					 Margin="4"
+					 FontSize="20"
+					 Grid.Row="0"
+					 Grid.Column="1">
+			</TextBox>
+			<TextBox x:Name="c_pathTb"
+					 Style="{StaticResource StdTbx}"
+					 Text="{Binding Path=Path}"
+					 Margin="4"
+					 FontSize="20"
+					 Grid.Row="1"
+					 Grid.Column="1"/>
+
+			<Grid Width="240"
+			  HorizontalAlignment="Right"
+			  Grid.Row="2"
+			  Grid.Column="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*" />
+					<ColumnDefinition Width="1*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Style="{StaticResource StdBtn}" 
+						Content="Confirm"
+						Margin="4"
+						Padding="4"
+						FontSize="20"
+						Grid.Column="0"
+						Click="Confirm_ButtonClick" />
+
+				<Button Style="{StaticResource StdBtn}" 
+						Content="Cancel"
+						Margin="4"
+						FontSize="20"
+						Grid.Column="1" 
+						Click="Cancel_ButtonClick"/>
+			</Grid>
+
+		</Grid>
+
+	</Border>
+
+</Window>
